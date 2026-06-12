@@ -97,7 +97,10 @@ joined = (
     )
 )
 
-# broadcast the small scd table to all compute nodes (performance)
+# broadcast the small scd table to all compute nodes to avoid shuffle (performance)
+
+# A shuffle in Spark is what happens when Spark must move data across the cluster so that rows that need to be processed together end up on the same machine. It is one of the slowest and most expensive operations Spark can perform.
+
 
 joined = (
     timeseries.alias("ts")
