@@ -1,6 +1,15 @@
 
 from pyspark.sql import functions as F
 
+
+# recommanded good practice : normalized table to simply the conditions 
+# If your SCD table uses NULL for open‑ended rows, convert them to a sentinel (9999-12-31).
+
+scd = scd.withColumn(
+    "datetime_stop",
+    F.coalesce("datetime_stop", F.lit("9999-12-31 23:59:59"))
+)
+
 def scd2_diagnostic_report(scd_df):
     """
     Build a full diagnostic report for a Type‑2 SCD table.
