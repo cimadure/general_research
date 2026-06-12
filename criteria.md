@@ -1,4 +1,220 @@
-`markdown
+# 🆕 Nouveaux algorithmes MCDA (2024–2026)  
+Ce bloc regroupe **toutes les nouveautés MCDA récentes**, avec :  
+- explications claires  
+- équations utiles  
+- liens Wikipédia (quand disponibles)  
+- tableau récapitulatif  
+- puis la liste des **méthodes MCDA les plus influentes** de la littérature
+
+---
+
+# 1. ⭐ Nouveaux algorithmes MCDA (2024–2026)
+
+## 1.1 **[Stratified MCDA](ca://s?q=Explain_Stratified_MCDA)**  
+Méthode récente qui structure les critères en **strates hiérarchiques**.  
+Elle permet de gérer des critères hétérogènes (physiques, économiques, qualitatifs) en couches.
+
+### Idée clé  
+On regroupe les critères en strates \( S_1, S_2, \dots, S_k \), puis on agrège par strate avant d’agréger globalement.
+
+\[
+V = \sum_{i=1}^k W_i \cdot f_i(\text{critères de la strate } S_i)
+\]
+
+### Avantages  
+- Très adaptée aux systèmes complexes (industrie, énergie, santé).  
+- Permet des pondérations différentes par strate.
+
+---
+
+## 1.2 **Stratified Best–Worst Method (SBWM)**  
+Extension stratifiée du **Best–Worst Method** (BWM).  
+BWM classique : https://en.wikipedia.org/wiki/Best%E2%80%93worst_method
+
+### Idée  
+On applique BWM **dans chaque strate**, puis on combine les résultats.
+
+### Équation BWM classique  
+\[
+\min_{\mathbf{w}} \max_j \left| \frac{w_B}{w_j} - a_{Bj} \right|,\quad
+\left| \frac{w_j}{w_W} - a_{jW} \right|
+\]
+
+SBWM ajoute une couche hiérarchique.
+
+---
+
+## 1.3 **Reference‑Model MCDA (2024)**  
+Méthode basée sur la **distance à un modèle de référence** défini par l’utilisateur.  
+Contrairement à **TOPSIS** (distance à l’idéal/anti‑idéal), ici on compare à un **profil cible**.
+
+### Formule  
+\[
+D_i = \sqrt{\sum_{k} w_k (x_{ik} - r_k)^2}
+\]
+
+où \( r_k \) = valeur de référence du critère \(k\).
+
+### Avantages  
+- Très intuitif quand on remplace un produit ou un système existant.  
+- Plus flexible que TOPSIS.
+
+---
+
+## 1.4 **AI‑Augmented MCDA**  
+Méthodes hybrides combinant MCDA + IA (ML, modèles tensoriels, modèles probabilistes).
+
+### Exemples  
+- MCDA pour sélectionner un modèle ML  
+- MCDA + réseaux neuronaux pour pondérer automatiquement les critères  
+- MCDA + modèles stochastiques pour gérer l’incertitude
+
+### Forme générale  
+\[
+V_i = g_{\theta}(\mathbf{x}_i, \mathbf{w})
+\]
+
+où \( g_{\theta} \) est un modèle appris.
+
+---
+
+## 1.5 **Scale‑Loss Score (SLoS)**  
+Nouvelle fonction d’agrégation pénalisant fortement les valeurs extrêmes.
+
+### Formule simplifiée  
+\[
+S = \prod_{k} x_k^{w_k}
+\]
+
+ou une variante logarithmique :
+
+\[
+\log S = \sum_k w_k \log x_k
+\]
+
+### Utilisé en  
+- évaluation bénéfice–risque  
+- santé  
+- industrie pharmaceutique
+
+---
+
+# 2. 📊 Tableau récapitulatif des nouveaux algorithmes
+
+| Méthode | Type | Nouveauté | Cas d’usage |
+|--------|------|-----------|-------------|
+| **[Stratified MCDA](ca://s?q=Explain_Stratified_MCDA)** | Hiérarchique | Critères en strates | Systèmes complexes |
+| **SBWM** | Pairwise | BWM stratifié | Décisions expertes |
+| **Reference‑Model MCDA** | Distance | Distance à un modèle cible | Remplacement d’équipement |
+| **AI‑Augmented MCDA** | Hybride | ML + MCDA | Sélection de modèles, optimisation |
+| **SLoS** | Agrégation | Pénalisation des extrêmes | Santé, risques |
+
+---
+
+# 3. 📚 Méthodes MCDA les plus influentes (classiques)
+
+Voici les méthodes qui dominent la littérature depuis 40 ans.  
+Liens Wikipédia inclus quand disponibles.
+
+---
+
+## 3.1 **Méthodes Value‑Based / Scoring**
+
+### **MAUT / MAVT**  
+https://en.wikipedia.org/wiki/Multi-attribute_utility  
+Fondation théorique de tout MCDA.
+
+### **AHP — Analytic Hierarchy Process**  
+https://en.wikipedia.org/wiki/Analytic_hierarchy_process  
+Méthode la plus enseignée au monde.
+
+### **ANP — Analytic Network Process**  
+https://en.wikipedia.org/wiki/Analytic_network_process  
+Extension de AHP avec dépendances.
+
+### **SMART / SMARTER**  
+Méthodes simples et très utilisées en industrie.
+
+---
+
+## 3.2 **Méthodes Distance‑Based**
+
+### **TOPSIS**  
+https://en.wikipedia.org/wiki/TOPSIS  
+Technique de classement par distance à l’idéal.
+
+\[
+C_i = \frac{D_i^-}{D_i^+ + D_i^-}
+\]
+
+### **VIKOR**  
+https://en.wikipedia.org/wiki/VIKOR  
+Recherche d’un compromis entre utilité et regret.
+
+### **COPRAS**  
+Méthode proportionnelle simple et efficace.
+
+---
+
+## 3.3 **Méthodes Outranking**
+
+### **ELECTRE**  
+https://en.wikipedia.org/wiki/ELECTRE  
+Famille de méthodes avec seuils, veto, surclassement.
+
+### **PROMETHEE**  
+https://en.wikipedia.org/wiki/Preference_ranking_organization_method_for_enrichment_evaluation  
+Préférences continues, très utilisé en Europe.
+
+---
+
+## 3.4 **Méthodes Ratio‑Based**
+
+### **MOORA / MULTIMOORA**  
+Méthodes rapides et robustes pour l’industrie.
+
+---
+
+## 3.5 **Méthodes Pairwise Optimization**
+
+### **BWM — Best–Worst Method**  
+https://en.wikipedia.org/wiki/Best%E2%80%93worst_method  
+Moins de comparaisons qu’AHP, très cohérent.
+
+---
+
+# 4. 🧠 Tableau récapitulatif des méthodes influentes
+
+| Méthode | Famille | Pourquoi elle est influente |
+|--------|---------|-----------------------------|
+| **MAUT/MAVT** | Value | Base théorique du MCDA |
+| **AHP** | Value | Intuitif, universel |
+| **ANP** | Value | Gère les dépendances |
+| **SMART** | Value | Simple et industriel |
+| **TOPSIS** | Distance | Très populaire, robuste |
+| **VIKOR** | Distance | Compromis optimal |
+| **COPRAS** | Distance | Proportionnel, transparent |
+| **ELECTRE** | Outranking | Gère les veto |
+| **PROMETHEE** | Outranking | Préférences continues |
+| **MOORA** | Ratio | Ultra rapide |
+| **MULTIMOORA** | Ratio | Très robuste |
+| **BWM** | Pairwise | Cohérence élevée |
+
+---
+
+# 5. 🎯 Résumé final
+
+- Les **nouveaux algorithmes MCDA** (2024–2026) apportent :  
+  - hiérarchisation (Stratified MCDA)  
+  - distance à un modèle cible (Reference‑Model MCDA)  
+  - hybridation IA (AI‑Augmented MCDA)  
+  - nouvelles fonctions d’agrégation (SLoS)
+
+- Les **méthodes influentes** restent :  
+  **AHP, TOPSIS, ELECTRE, PROMETHEE, MAUT, VIKOR, BWM, MOORA**.
+
+---
+
 
 🧱 Tableau MCDA complet + intégration du score de plausibilité métier
 Ce bloc contient tout :  
