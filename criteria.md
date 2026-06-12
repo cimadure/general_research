@@ -339,3 +339,295 @@ Sans ce critère, une méthode “mathématiquement bonne” mais “métier inc
 
 ---
 
+____
+
+📚 Monobloc MCDA — ELECTRE, PROMETHEE, TOPSIS, VIKOR, ANP, MULTIMOORA, SLoS, SBWM
+
+Ce bloc regroupe, pour chaque méthode :
+- définition courte  
+- idée clé  
+- équations essentielles  
+- lien Wikipédia (quand disponible)
+
+---
+
+## 1. ELECTRE (outranking)
+
+**Lien :** https://en.wikipedia.org/wiki/ELECTRE  
+
+**Idée générale :**  
+Comparer les alternatives **par paires** et décider si l’une **surclasse** l’autre, en utilisant :
+- un **indice de concordance** (où l’alternative est meilleure ou égale)  
+- un **indice de discordance** (où elle est nettement pire)  
+- des **seuils** et éventuellement des **veto**
+
+### Concordance
+
+Pour deux alternatives \(a\) et \(b\) :
+
+- Ensemble des critères où \(a\) est au moins aussi bon que \(b\) :  
+  \[
+  J^+(a,b) = \{ k \mid x_{ak} \ge x_{bk} \}
+  \]
+
+- Indice de concordance :  
+  \[
+  C(a,b) = \frac{\sum_{k \in J^+(a,b)} w_k}{\sum_{k} w_k}
+  \]
+
+### Discordance (version simple)
+
+\[
+D(a,b) = \max_{k} \frac{x_{bk} - x_{ak}}{\text{plage}_k}
+\]
+
+On dit que \(a\) surclasse \(b\) si :
+- \(C(a,b)\) est **au‑dessus** d’un seuil de concordance  
+- \(D(a,b)\) est **en‑dessous** d’un seuil de discordance  
+- et pas de veto activé
+
+---
+
+## 2. PROMETHEE (outranking avec fonctions de préférence)
+
+**Lien :** https://en.wikipedia.org/wiki/Preference_ranking_organization_method_for_enrichment_evaluation  
+
+**Idée générale :**  
+Pour chaque critère, on définit une **fonction de préférence** \(P_k(a,b)\) qui mesure à quel point \(a\) est préféré à \(b\) sur ce critère.
+
+### Préférence unitaire
+
+\[
+P_k(a,b) = F_k(x_{ak} - x_{bk})
+\]
+
+où \(F_k\) est une fonction (usuelle, linéaire, gaussienne, etc.).
+
+### Préférence globale
+
+\[
+\pi(a,b) = \sum_k w_k \, P_k(a,b)
+\]
+
+### Flots de préférence
+
+- **Flux sortant :**  
+  \[
+  \phi^+(a) = \frac{1}{n-1} \sum_{b \ne a} \pi(a,b)
+  \]
+
+- **Flux entrant :**  
+  \[
+  \phi^-(a) = \frac{1}{n-1} \sum_{b \ne a} \pi(b,a)
+  \]
+
+- **Flux net :**  
+  \[
+  \phi(a) = \phi^+(a) - \phi^-(a)
+  \]
+
+Classement PROMETHEE II : trier les alternatives par \(\phi(a)\).
+
+---
+
+## 3. TOPSIS (distance à l’idéal)
+
+**Lien :** https://en.wikipedia.org/wiki/TOPSIS  
+
+**Idée générale :**  
+Une bonne alternative est :
+- **proche** de la solution idéale  
+- **loin** de la solution anti‑idéale
+
+### Étapes principales
+
+1. **Normalisation**  
+   \[
+   r_{ik} = \frac{x_{ik}}{\sqrt{\sum_i x_{ik}^2}}
+   \]
+
+2. **Pondération**  
+   \[
+   v_{ik} = w_k \, r_{ik}
+   \]
+
+3. **Idéal et anti‑idéal**
+
+   - Critère à maximiser :  
+     \[
+     v_k^+ = \max_i v_{ik}, \quad v_k^- = \min_i v_{ik}
+     \]
+
+4. **Distances**
+
+   \[
+   D_i^+ = \sqrt{\sum_k (v_{ik} - v_k^+)^2}, \quad
+   D_i^- = \sqrt{\sum_k (v_{ik} - v_k^-)^2}
+   \]
+
+5. **Score de proximité**
+
+   \[
+   C_i = \frac{D_i^-}{D_i^+ + D_i^-}
+   \]
+
+Plus \(C_i\) est grand, meilleure est l’alternative.
+
+---
+
+## 4. VIKOR (compromis)
+
+**Lien :** https://en.wikipedia.org/wiki/VIKOR  
+
+**Idée générale :**  
+Chercher une solution de **compromis** entre :
+- **utilité de groupe** (performance globale)  
+- **regret individuel** (pire critère)
+
+### Meilleur et pire pour chaque critère
+
+\[
+f_k^* = \max_i f_{ik}, \quad f_k^- = \min_i f_{ik}
+\]
+
+### Mesures \(S_i\) (utilité) et \(R_i\) (regret)
+
+\[
+S_i = \sum_k w_k \frac{f_k^* - f_{ik}}{f_k^* - f_k^-}
+\]
+
+\[
+R_i = \max_k \left[ w_k \frac{f_k^* - f_{ik}}{f_k^* - f_k^-} \right]
+\]
+
+### Indice VIKOR
+
+\[
+Q_i = v \cdot \frac{S_i - S^*}{S^- - S^*} + (1-v) \cdot \frac{R_i - R^*}{R^- - R^*}
+\]
+
+avec \(v \in [0,1]\) (souvent \(v = 0.5\)).
+
+On classe les alternatives par \(Q_i\).
+
+---
+
+## 5. ANP (Analytic Network Process)
+
+**Lien :** https://en.wikipedia.org/wiki/Analytic_network_process  
+
+**Idée générale :**  
+Extension de l’**AHP** qui permet des **dépendances** et **boucles** entre critères et alternatives.
+
+### Étapes
+
+1. Comparaisons par paires (comme AHP) pour chaque cluster (critères, alternatives, etc.).  
+2. Construction d’une **super‑matrice** \(W\) qui contient toutes les influences.  
+3. Calcul de la **super‑matrice pondérée**, puis de la **super‑matrice limite** \(W^\infty\).  
+4. Les poids finaux sont extraits de \(W^\infty\).
+
+Mathématiquement, on cherche le vecteur propre stationnaire de la super‑matrice.
+
+---
+
+## 6. MULTIMOORA (extension de MOORA)
+
+**MOORA / MULTIMOORA** n’ont pas de page Wikipédia dédiée, mais MOORA est souvent décrit dans la littérature.
+
+**Idée générale :**  
+MULTIMOORA combine **trois formes** :
+
+1. **Ratio System**  
+   \[
+   y_i = \sum_{k \in B} w_k \frac{x_{ik}}{x_k^{\max}} - \sum_{k \in C} w_k \frac{x_{ik}}{x_k^{\max}}
+   \]
+   où \(B\) = critères à maximiser, \(C\) = à minimiser.
+
+2. **Reference Point**  
+   On compare chaque alternative à un point de référence (meilleures performances).
+
+3. **Full Multiplicative Form**  
+   \[
+   U_i = \prod_{k \in B} x_{ik}^{w_k} \Big/ \prod_{k \in C} x_{ik}^{w_k}
+   \]
+
+MULTIMOORA agrège les classements issus de ces trois formes pour plus de robustesse.
+
+---
+
+## 7. SLoS (Scale‑Loss Score)
+
+**Idée générale :**  
+Fonction d’agrégation qui **pénalise fortement les valeurs extrêmes** et favorise un profil équilibré.
+
+### Forme multiplicative
+
+Pour des critères normalisés \(x_k \in (0,1]\) :
+
+\[
+S = \prod_k x_k^{w_k}
+\]
+
+ou en log :
+
+\[
+\log S = \sum_k w_k \log x_k
+\]
+
+Une valeur très faible sur un critère fait chuter fortement le score global → utile en **bénéfice–risque**, sécurité, santé.
+
+---
+
+## 8. SBWM (Stratified Best–Worst Method)
+
+**BWM classique (Best–Worst Method) :**  
+https://en.wikipedia.org/wiki/Best%E2%80%93worst_method  
+
+**Idée générale :**  
+- L’expert choisit un **meilleur** critère (Best) et un **pire** (Worst).  
+- Il compare le Best à tous les autres, puis tous les autres au Worst.  
+- On résout un problème d’optimisation pour obtenir les poids.
+
+### Formulation BWM
+
+On cherche les poids \(w_k\) qui minimisent l’incohérence :
+
+\[
+\min_{\mathbf{w}, \xi} \ \xi
+\]
+
+sous contraintes :
+
+\[
+\left| \frac{w_B}{w_j} - a_{Bj} \right| \le \xi,\quad
+\left| \frac{w_j}{w_W} - a_{jW} \right| \le \xi,\quad
+\sum_k w_k = 1,\quad
+w_k \ge 0
+\]
+
+où :
+- \(B\) = critère Best  
+- \(W\) = critère Worst  
+- \(a_{Bj}\) = préférence du Best sur \(j\)  
+- \(a_{jW}\) = préférence de \(j\) sur le Worst  
+
+**SBWM (Stratified BWM)** :  
+On applique BWM **par strate de critères** (groupes hiérarchiques), puis on agrège les poids des strates et des critères internes.
+
+---
+
+## 9. Résumé rapide
+
+| Méthode | Famille | Idée clé |
+|--------|---------|----------|
+| ELECTRE | Outranking | Concordance + discordance + veto |
+| PROMETHEE | Outranking | Fonctions de préférence + flots |
+| TOPSIS | Distance | Proche de l’idéal, loin de l’anti‑idéal |
+| VIKOR | Distance/Compromis | Compromis utilité–regret |
+| ANP | Hiérarchique/Network | Dépendances entre critères |
+| MULTIMOORA | Ratio/Hybrid | Trois formes combinées |
+| SLoS | Agrégation | Pénalise les extrêmes |
+| SBWM | Pairwise/Stratified | BWM hiérarchisé |
+
+---
+
