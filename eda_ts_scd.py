@@ -69,6 +69,27 @@ def scd2_diagnostic_report(scd_df):
     }
 
 
+# open ended stop
+from pyspark.sql import functions as F
+
+joined = (
+    timeseries.alias("ts")
+    .join(
+        scd.alias("scd"),
+        (
+            (F.col("ts.serial_number") == F.col("scd.serial_number")) &
+            (F.col("ts.datetime_record") >= F.col("scd.datetime_start")) &
+            (
+                (F.col("ts.datetime_record") < F.col("scd.datetime_stop")) |
+                F.col("scd.datetime_stop").isNull()
+            )
+        ),
+        "left"
+    )
+)
+
+# broadcast the small scd table to all compute nodes (performance)
+
 joined = (
     timeseries.alias("ts")
     .join(
