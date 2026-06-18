@@ -64,11 +64,11 @@ $$
 
 ## 2.2 Stratified Best–Worst Method (SBWM)
 
-🔗 [Best–Worst Method — Wikipedia](https://en.wikipedia.org/wiki/Best%E2%80%93worst_method)  
+🔗
 **Famille :** Pairwise / Stratifié  
 
 ### Description
-Extension stratifiée du **Best–Worst Method** (BWM). On applique BWM **dans chaque strate**, puis on combine les résultats. Voir §3.11 pour le détail de BWM.
+Extension stratifiée du [Best–Worst Method(BWM)](https://en.wikipedia.org/wiki/Best_worst_method) . On applique BWM **dans chaque strate**, puis on combine les résultats. Voir §3.11 pour le détail de BWM.
 
 ### Équation BWM classique
 
@@ -149,9 +149,8 @@ $$
 
 # 3. Méthodes classiques influentes
 
-## 3.1 MAUT / MAVT
+## 3.1 [MAUT / MAVT](https://en.wikipedia.org/wiki/Multi-attribute_utility)
 
-🔗 [Multi-attribute utility — Wikipedia](https://en.wikipedia.org/wiki/Multi-attribute_utility)  
 **Famille :** Value  
 
 ### Description
@@ -159,9 +158,8 @@ Fondation théorique de tout MCDA. Chaque critère est transformé en une **fonc
 
 ---
 
-## 3.2 AHP — Analytic Hierarchy Process
+## 3.2 [AHP — Analytic Hierarchy Process](https://en.wikipedia.org/wiki/Analytic_hierarchy_process)
 
-🔗 [Analytic Hierarchy Process — Wikipedia](https://en.wikipedia.org/wiki/Analytic_hierarchy_process)  
 **Famille :** Value  
 
 ### Description
@@ -169,9 +167,8 @@ Méthode la plus enseignée au monde. Décompose le problème en **hiérarchie**
 
 ---
 
-## 3.3 ANP — Analytic Network Process
+## 3.3 [ANP — Analytic Network Process](https://en.wikipedia.org/wiki/Analytic_network_process)
 
-🔗 [Analytic Network Process — Wikipedia](https://en.wikipedia.org/wiki/Analytic_network_process)  
 **Famille :** Value / Network  
 
 ### Description
@@ -196,9 +193,8 @@ Méthodes simples et très utilisées en industrie. SMARTER ajoute une procédur
 
 ---
 
-## 3.5 TOPSIS
+## 3.5 [TOPSIS](https://en.wikipedia.org/wiki/TOPSIS)
 
-🔗 [TOPSIS — Wikipedia](https://en.wikipedia.org/wiki/TOPSIS)  
 **Famille :** Distance  
 
 ### Description
@@ -236,9 +232,8 @@ Plus $C_i$ est grand, meilleure est l'alternative.
 
 ---
 
-## 3.6 VIKOR
+## 3.6 [VIKOR](https://en.wikipedia.org/wiki/VIKOR)
 
-🔗 [VIKOR — Wikipedia](https://en.wikipedia.org/wiki/VIKOR)  
 **Famille :** Distance / Compromis  
 
 ### Description
@@ -279,9 +274,8 @@ Méthode proportionnelle simple et efficace. Calcule un rapport entre la somme d
 
 ---
 
-## 3.8 ELECTRE
+## 3.8 [ELECTRE](https://en.wikipedia.org/wiki/ELECTRE)
 
-🔗 [ELECTRE — Wikipedia](https://en.wikipedia.org/wiki/ELECTRE)  
 **Famille :** Outranking  
 
 ### Description
@@ -311,9 +305,8 @@ On dit que $a$ surclasse $b$ si $C(a,b)$ dépasse le seuil de concordance, $D(a,
 
 ---
 
-## 3.9 PROMETHEE
+## 3.9 [PROMETHEE](https://en.wikipedia.org/wiki/Preference_ranking_organization_method_for_enrichment_evaluation)
 
-🔗 [PROMETHEE — Wikipedia](https://en.wikipedia.org/wiki/Preference_ranking_organization_method_for_enrichment_evaluation)  
 **Famille :** Outranking  
 
 ### Description
@@ -375,9 +368,8 @@ MULTIMOORA agrège les classements issus de ces trois formes.
 
 ---
 
-## 3.11 BWM — Best–Worst Method
+## 3.11 [BWM — Best–Worst Method](https://en.wikipedia.org/wiki/Best%E2%80%93worst_method)
 
-🔗 [Best–Worst Method — Wikipedia](https://en.wikipedia.org/wiki/Best%E2%80%93worst_method)  
 **Famille :** Pairwise  
 
 ### Description
