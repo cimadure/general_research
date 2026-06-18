@@ -264,12 +264,12 @@ Ce bloc contient tout :
 
 Critères à maximiser
 $$
-x'{ij} = \frac{x{ij}}{\maxj x{ij}}
+x'_{ij} = \frac{x_{ij}}{\max_j x_{ij}}
 $$
 
 Critères à minimiser
 $$
-x'{ij} = \frac{\minj x{ij}}{x{ij}}
+x'_{ij} = \frac{\min_j x_{ij}}{x_{ij}}
 $$
 
 Résultat normalisé
