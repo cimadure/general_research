@@ -21,22 +21,22 @@
 
 | Méthode | Famille | Horizon | Idée clé | Cas d'usage |
 |---------|---------|---------|----------|-------------|
-| **MAUT/MAVT** | Value | Classique | Fonctions d'utilité multi-attributs | Base théorique |
-| **AHP** | Value | Classique | Comparaisons par paires hiérarchiques | Décision générale |
-| **ANP** | Value | Classique | AHP avec dépendances et boucles | Systèmes interdépendants |
-| **SMART/SMARTER** | Value | Classique | Pondération simple par ratio | Industrie, rapidité |
-| **TOPSIS** | Distance | Classique | Distance à l'idéal et à l'anti-idéal | Classement robuste |
-| **VIKOR** | Distance/Compromis | Classique | Compromis utilité–regret | Décision collective |
-| **COPRAS** | Distance | Classique | Rapport proportionnel direct | Simplicité, transparence |
-| **ELECTRE** | Outranking | Classique | Surclassement avec seuils et veto | Critères hétérogènes |
-| **PROMETHEE** | Outranking | Classique | Fonctions de préférence + flux | Préférences continues |
-| **MOORA/MULTIMOORA** | Ratio | Classique | Trois formes combinées | Industrie, robustesse |
-| **BWM** | Pairwise | Classique | Meilleur/Pire critère uniquement | Cohérence maximale |
-| **Stratified MCDA** | Hiérarchique | 2024 | Critères en strates | Systèmes complexes |
-| **SBWM** | Pairwise/Stratifié | 2024 | BWM par strates | Décisions expertes |
-| **Reference-Model MCDA** | Distance | 2024 | Distance à un profil cible | Remplacement d'équipement |
-| **AI-Augmented MCDA** | Hybride | 2024 | ML + MCDA | Optimisation automatisée |
-| **SLoS** | Agrégation | 2024 | Pénalise les valeurs extrêmes | Santé, risques |
+| **[MAUT/MAVT][maut]** | Value | Classique | Fonctions d'utilité multi-attributs | Base théorique |
+| **[AHP][ahp]** | Value | Classique | Comparaisons par paires hiérarchiques | Décision générale |
+| **[ANP][anp]** | Value | Classique | AHP avec dépendances et boucles | Systèmes interdépendants |
+| **[SMART/SMARTER][smart]** | Value | Classique | Pondération simple par ratio | Industrie, rapidité |
+| **[TOPSIS][topsis]** | Distance | Classique | Distance à l'idéal et à l'anti-idéal | Classement robuste |
+| **[VIKOR][vikor]** | Distance/Compromis | Classique | Compromis utilité–regret | Décision collective |
+| **[COPRAS][copras]** | Distance | Classique | Rapport proportionnel direct | Simplicité, transparence |
+| **[ELECTRE][electre]** | Outranking | Classique | Surclassement avec seuils et veto | Critères hétérogènes |
+| **[PROMETHEE][promethee]** | Outranking | Classique | Fonctions de préférence + flux | Préférences continues |
+| **[MOORA/MULTIMOORA][moora]** | Ratio | Classique | Trois formes combinées | Industrie, robustesse |
+| **[BWM][bwm]** | Pairwise | Classique | Meilleur/Pire critère uniquement | Cohérence maximale |
+| **[Stratified MCDA][stratified]** | Hiérarchique | 2024 | Critères en strates | Systèmes complexes |
+| **[SBWM][sbwm]** | Pairwise/Stratifié | 2024 | BWM par strates | Décisions expertes |
+| **[Reference-Model MCDA][refmodel]** | Distance | 2024 | Distance à un profil cible | Remplacement d'équipement |
+| **[AI-Augmented MCDA][ai-mcda]** | Hybride | 2024 | ML + MCDA | Optimisation automatisée |
+| **[SLoS][slos]** | Agrégation | 2024 | Pénalise les valeurs extrêmes | Santé, risques |
 
 ---
 
@@ -403,23 +403,23 @@ où :
 
 | Méthode | Famille | Force principale | Complexité | Gère l'incertitude | Cas d'usage typique |
 |---------|---------|-----------------|------------|-------------------|---------------------|
-| MAUT/MAVT | Value | Base théorique solide | Élevée | Oui (utilité) | Décision stratégique |
-| AHP | Value | Intuitif, universel | Moyenne | Non | Tout domaine |
-| ANP | Value | Dépendances entre critères | Élevée | Non | Systèmes interdépendants |
-| SMART | Value | Simple et rapide | Faible | Non | Industrie |
-| TOPSIS | Distance | Très populaire, robuste | Faible | Non | Classement multi-critères |
-| VIKOR | Distance | Compromis optimal | Faible | Non | Décision collective |
-| COPRAS | Distance | Proportionnel, transparent | Faible | Non | Évaluation comparative |
-| ELECTRE | Outranking | Gère les veto | Élevée | Partielle | Critères hétérogènes |
-| PROMETHEE | Outranking | Préférences continues | Moyenne | Non | Europe, ingénierie |
-| MOORA | Ratio | Ultra rapide | Faible | Non | Industrie |
-| MULTIMOORA | Ratio | Très robuste (3 formes) | Moyenne | Non | Industrie |
-| BWM | Pairwise | Cohérence élevée, peu de données | Faible | Non | Pondération experte |
-| Stratified MCDA | Hiérarchique | Critères hétérogènes en strates | Moyenne | Non | Systèmes complexes |
-| SBWM | Pairwise/Stratifié | BWM hiérarchisé | Moyenne | Non | Décisions expertes |
-| Reference-Model MCDA | Distance | Distance à un profil cible | Faible | Non | Remplacement d'équipement |
-| AI-Augmented MCDA | Hybride | Automatisation des poids | Élevée | Oui (ML) | Optimisation automatisée |
-| SLoS | Agrégation | Pénalise les extrêmes | Faible | Non | Santé, risques |
+| [MAUT/MAVT][maut] | Value | Base théorique solide | Élevée | Oui (utilité) | Décision stratégique |
+| [AHP][ahp] | Value | Intuitif, universel | Moyenne | Non | Tout domaine |
+| [ANP][anp] | Value | Dépendances entre critères | Élevée | Non | Systèmes interdépendants |
+| [SMART][smart] | Value | Simple et rapide | Faible | Non | Industrie |
+| [TOPSIS][topsis] | Distance | Très populaire, robuste | Faible | Non | Classement multi-critères |
+| [VIKOR][vikor] | Distance | Compromis optimal | Faible | Non | Décision collective |
+| [COPRAS][copras] | Distance | Proportionnel, transparent | Faible | Non | Évaluation comparative |
+| [ELECTRE][electre] | Outranking | Gère les veto | Élevée | Partielle | Critères hétérogènes |
+| [PROMETHEE][promethee] | Outranking | Préférences continues | Moyenne | Non | Europe, ingénierie |
+| [MOORA][moora] | Ratio | Ultra rapide | Faible | Non | Industrie |
+| [MULTIMOORA][moora] | Ratio | Très robuste (3 formes) | Moyenne | Non | Industrie |
+| [BWM][bwm] | Pairwise | Cohérence élevée, peu de données | Faible | Non | Pondération experte |
+| [Stratified MCDA][stratified] | Hiérarchique | Critères hétérogènes en strates | Moyenne | Non | Systèmes complexes |
+| [SBWM][sbwm] | Pairwise/Stratifié | BWM hiérarchisé | Moyenne | Non | Décisions expertes |
+| [Reference-Model MCDA][refmodel] | Distance | Distance à un profil cible | Faible | Non | Remplacement d'équipement |
+| [AI-Augmented MCDA][ai-mcda] | Hybride | Automatisation des poids | Élevée | Oui (ML) | Optimisation automatisée |
+| [SLoS][slos] | Agrégation | Pénalise les extrêmes | Faible | Non | Santé, risques |
 
 ---
 
@@ -543,3 +543,23 @@ Le critère C1 influence fortement le classement car :
 ---
 
 *Fin du guide — généré depuis `criteria.md`*
+
+---
+
+<!-- Aliases de navigation interne -->
+[maut]: #31-maut--mavt
+[ahp]: #32-ahp--analytic-hierarchy-process
+[anp]: #33-anp--analytic-network-process
+[smart]: #34-smart--smarter
+[topsis]: #35-topsis
+[vikor]: #36-vikor
+[copras]: #37-copras
+[electre]: #38-electre
+[promethee]: #39-promethee
+[moora]: #310-moora--multimoora
+[bwm]: #311-bwm--bestworst-method
+[stratified]: #21-stratified-mcda
+[sbwm]: #22-stratified-bestworst-method-sbwm
+[refmodel]: #23-referencemodel-mcda-2024
+[ai-mcda]: #24-aiaugmented-mcda
+[slos]: #25-scaleloss-score-slos
